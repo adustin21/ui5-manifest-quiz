@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Category Quiz</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Category Quiz</h1>
+      <p id="error" class="error" hidden></p>
+
+      <section id="setup" class="card">
+        <label>
+          Number of questions:
+          <em> (max: <span id="max-count"></span>)</em>
+          <input type="number" id="count" min="1" value="1" />
+        </label>
+        <label class="check">
+          <input type="checkbox" id="shuffle" checked />
+          Shuffle questions
+        </label>
+        <button id="start" class="primary" type="button">Start quiz</button>
+      </section>
+
+      <section id="quiz" class="card" hidden>
+        <div class="progress">
+          <span id="progress-text"></span>
+          <div class="bar"><div id="progress-bar"></div></div>
+        </div>
+
+        <h2 id="item-name"></h2>
+
+        <button
+          id="toggle"
+          class="toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="item-desc"
+        >
+          <span class="arrow" aria-hidden="true">▸</span> Description
+        </button>
+        <p id="item-desc" hidden></p>
+
+        <p class="hint">Which category does this belong to?</p>
+        <div id="options" class="options"></div>
+
+        <p id="feedback" class="feedback" aria-live="polite"></p>
+
+        <div class="actions">
+          <button id="next" class="primary" type="button" disabled>Next</button>
+        </div>
+      </section>
+
+      <section id="result" class="card" hidden>
+        <h2>Results</h2>
+        <p id="score" class="score"></p>
+        <ol id="review" class="review"></ol>
+        <div class="actions">
+          <button id="restart" class="primary" type="button">
+            Start again
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
